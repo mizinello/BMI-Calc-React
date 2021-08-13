@@ -10,7 +10,7 @@ export default class FetchRandomUser extends React.Component {
     const url = "https://bmi-myapp-calculator.herokuapp.com/bmi";
     const response = await fetch(url);
     const data = await response.json();
-    this.setState({ person: data.results[0], loading: false });
+    console.log(data);
   }
 
   render() {
@@ -18,17 +18,12 @@ export default class FetchRandomUser extends React.Component {
       return <div>loading...</div>;
     }
 
-    if (!this.state.person) {
+    if (!this.state.biodata_diri) {
       return <div>didn't get a person</div>;
     }
 
-    return (
-      <div>
-        {/* <div>{this.state.person.name.title}</div>
-        <div>{this.state.person.name.first}</div>
-        <div>{this.state.person.name.last}</div>
-        <img src={this.state.person.picture.large} /> */}
-      </div>
-    );
+    return <div>{/* <div>{this.state.biodata_diri.name}</div> */}</div>;
   }
 }
+
+// https://www.youtube.com/watch?v=T3Px88x_PsA&t=458s
